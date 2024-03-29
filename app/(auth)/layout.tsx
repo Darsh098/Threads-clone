@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 
 export const metadata = {
-  title: "Threads",
-  description: "A Next.js 14 Meta Threads Application",
+  title: "Threads Clone",
+  description: "A Next.js 14 Threads Clone",
 };
 
 // Using Fonts From Google Fonts

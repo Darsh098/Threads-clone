@@ -9,8 +9,8 @@ import Bottombar from "@/components/shared/Bottombar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Threads",
-  description: "A Next.js 14 Threads Application",
+  title: "Threads Clone",
+  description: "A Next.js 14 Threads Clone",
 };
 
 export default function RootLayout({
