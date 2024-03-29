@@ -46,19 +46,37 @@ async function Page({ params }: { params: { id: string } }) {
               </TabsTrigger>
             ))}
           </TabsList>
-          {profileTabs.map((tab) => (
-            <TabsContent
-              key={`content-${tab.label}`}
-              value={tab.value}
-              className="w-full text-light-1"
-            >
-              <ThreadsTab
-                currentUserId={user.id}
-                accountId={userInfo.id}
-                accountType="User"
-              />
-            </TabsContent>
-          ))}
+          <TabsContent value="threads" className="w-full text-light-1">
+            <ThreadsTab
+              currentUserId={user.id}
+              accountId={userInfo.id}
+              accountType="User"
+            />
+          </TabsContent>
+          <TabsContent value="replies" className="w-full text-light-1">
+            <article className="mt-9 flex flex-col gap-10">
+              <section
+                className={`flex w-full flex-col rounded-xl bg-dark-2 p-7`}
+              >
+                <h4 className="text-base-semibold  text-light-1 p-2">
+                  <span className="mr-1 text-primary-500">Stay Tuned</span>{" "}
+                  Enhancements Underway!
+                </h4>
+              </section>
+            </article>
+          </TabsContent>
+          <TabsContent value="tagged" className="w-full text-light-1">
+            <article className="mt-9 flex flex-col gap-10">
+              <section
+                className={`flex w-full flex-col rounded-xl bg-dark-2 p-7`}
+              >
+                <h4 className="text-base-semibold  text-light-1 p-2">
+                  <span className="mr-1 text-primary-500">Stay Tuned</span>{" "}
+                  Enhancements Underway!
+                </h4>
+              </section>
+            </article>
+          </TabsContent>
         </Tabs>
       </div>
     </section>

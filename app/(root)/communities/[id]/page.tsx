@@ -71,11 +71,16 @@ async function Page({ params }: { params: { id: string } }) {
             </section>
           </TabsContent>
           <TabsContent value="requests" className="w-full text-light-1">
-            <ThreadsTab
-              currentUserId={user.id}
-              accountId={communityDetails._id}
-              accountType="Community"
-            />
+            <article className="mt-9 flex flex-col gap-10">
+              <section
+                className={`flex w-full flex-col rounded-xl bg-dark-2 p-7`}
+              >
+                <h4 className="text-base-semibold  text-light-1 p-2">
+                  <span className="mr-1 text-primary-500">Stay Tuned</span>{" "}
+                  Enhancements Underway!
+                </h4>
+              </section>
+            </article>
           </TabsContent>
         </Tabs>
       </div>
