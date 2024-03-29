@@ -26,7 +26,7 @@ async function Page() {
 
       <div className="mt-14 flex flex-col gap-9">
         {result.communities.length === 0 ? (
-          <p className="no-result">No Users</p>
+          <p className="no-result">No Communities Yet...</p>
         ) : (
           <>
             {result.communities.map((community) => (
