@@ -1,3 +1,4 @@
+import { fetchCommunityDetailsById } from "@/lib/actions/community.actions";
 import { formatDateString } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,11 +13,7 @@ interface Props {
     name: string;
     image: string;
   };
-  community: {
-    id: string;
-    name: string;
-    image: string;
-  } | null;
+  community: string | null;
   createdAt: string;
   comments: {
     author: {
@@ -26,7 +23,7 @@ interface Props {
   isComment?: boolean;
 }
 
-const ThreadCard = ({
+const ThreadCard = async ({
   id,
   currentUserId,
   parentId,
@@ -37,6 +34,10 @@ const ThreadCard = ({
   comments,
   isComment,
 }: Props) => {
+  let communityDetails;
+  if (community) {
+    communityDetails = await fetchCommunityDetailsById(community);
+  }
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"}`}
@@ -109,18 +110,18 @@ const ThreadCard = ({
       </div>
       {/* TODO: Delete A Thread */}
 
-      {!isComment && community && (
+      {!isComment && communityDetails && (
         <Link
-          href={`/communities/${community.id}`}
+          href={`/communities/${communityDetails.id}`}
           className="mt-5 flex items-center"
         >
           <p className="text-subtle-medium text-gray-1">
-            {formatDateString(createdAt)} - {community.name} Community
+            {formatDateString(createdAt)} - {communityDetails.name} Community
           </p>
 
           <Image
-            src={community.image}
-            alt={community.name}
+            src={communityDetails.image}
+            alt={communityDetails.name}
             width={14}
             height={14}
             className="ml-1 rounded-full object-cover"
