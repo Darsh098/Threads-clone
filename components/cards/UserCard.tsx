@@ -46,8 +46,6 @@ const UserCard = ({
               <p className="text-small-medium text-gray-1">@{username}</p>
             </>
           )}
-          {/* <h4 className="text-base-semibold text-light-1">{name}</h4>
-          <p className="text-small-medium text-gray-1">@{username}</p> */}
         </div>
       </div>
 
@@ -65,12 +63,6 @@ const UserCard = ({
           View
         </Button>
       )}
-      {/* <Button
-        className="user-card_btn"
-        onClick={() => router.push(`/profile/${id}`)}
-      >
-        View
-      </Button> */}
     </article>
   );
 };
